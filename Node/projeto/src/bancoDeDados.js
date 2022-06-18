@@ -14,11 +14,16 @@ function salvarProduto(produto) {
 }
 
 function getProduto(id) {
-    return produtos[id] || {}
+    return produtos[id] || 'Produto não encontrado'
 }
 
 function getProdutos() {
     return Object.values(produtos)
 }
 
-module.exports = { salvarProduto, getProduto, getProdutos }
+function deleteProduct(id) {
+    delete produtos[id]
+    return 'Produto deletado com sucesso'
+}
+
+module.exports = { salvarProduto, getProduto, getProdutos, deleteProduct }
